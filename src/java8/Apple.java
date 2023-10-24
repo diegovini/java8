@@ -3,13 +3,13 @@ package java8;
 import java8.enums.ColorEnum;
 
 public class Apple {
-	private int weight;
+	private Integer weight;
 	private ColorEnum color;
 	
-	public int getWeight() {
+	public Integer getWeight() {
 		return weight;
 	}
-	public void setWeight(int weight) {
+	public void setWeight(Integer weight) {
 		this.weight = weight;
 	}
 	public ColorEnum getColor() {
@@ -17,5 +17,12 @@ public class Apple {
 	}
 	public void setColor(ColorEnum color) {
 		this.color = color;
+	}
+	public Apple() {
+	
+	}
+	
+	public Apple(Integer weight) {
+		this.weight= weight;
 	}
 }
