@@ -1,6 +1,6 @@
 package java8.interfaces;
 
-import java8.Apple;
+import java8.dominio.Apple;
 
 public interface ApplePredicate {
 	

@@ -1,4 +1,4 @@
-package java8;
+package java8.dominio;
 
 import java8.enums.ColorEnum;
 

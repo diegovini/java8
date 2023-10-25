@@ -1,7 +1,7 @@
 package java8.interfaces;
 
 @FunctionalInterface
-public interface Function<T,R> {
+public interface FunctionInterface<T,R> {
 	R apply(T t);
 
 }

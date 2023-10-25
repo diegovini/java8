@@ -2,7 +2,7 @@ package java8.comparator;
 
 import java.util.Comparator;
 
-import java8.Apple;
+import java8.dominio.Apple;
 
 public class AppleComparator implements Comparator<Apple>{
 

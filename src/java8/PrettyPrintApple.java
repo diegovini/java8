@@ -5,6 +5,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 
+import java8.dominio.Apple;
+
 public class PrettyPrintApple {
 	
 	public static void prettyPrintApple(List<Apple>inventory, Predicate<Apple> p) {

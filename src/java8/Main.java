@@ -4,10 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
+import java8.dominio.Apple;
+import java8.dominio.Letter;
 import java8.enums.ColorEnum;
 import java8.interfaces.ConsumerInterface;
-import java8.interfaces.Function;
+import java8.interfaces.FunctionInterface;
 import java8.interfaces.PredicateInterface;
 
 public class Main {	
@@ -22,11 +26,33 @@ public class Main {
 		a2.setColor(ColorEnum.RED);
 		a3.setColor(ColorEnum.GREEN);
 		
-		a1.setWeight(10);
-		a2.setWeight(20);
-		a3.setWeight(30);
+		a1.setWeight(40);
+		a2.setWeight(40);
+		a3.setWeight(80);
 		
 		List<Apple> inventory = Arrays.asList(a2,a3,a1);
+		
+		String text = Letter.addHeader("Olá, seja bem vindo ao ladba");		
+		text = Letter.addFooter(text);
+		text = Letter.checkSpelling(text);
+		System.out.println(text);
+		
+		
+		Function<String,String> addHeader = Letter::addHeader;
+		Function<String,String> transformationPipeline = addHeader.andThen(Letter::checkSpelling).andThen(Letter::addFooter);
+		Function<String,String> transformationPipeline2 = addHeader.andThen(Letter::checkSpelling);
+		
+		
+		String a = transformationPipeline.apply("Olá, seja bem vindo ao ladba");
+		System.out.println(a);
+		
+		String aa1 = transformationPipeline2.apply("Olá, seja bem vindo ao ladba");
+		System.out.println(aa1);
+		
+		
+		
+		
+		
 		//inventory.sort(new AppleComparator());
 		
 //		inventory.sort(new Comparator<Apple>() {
@@ -38,11 +64,20 @@ public class Main {
 //			}
 //		});
 		
-		inventory.sort(Comparator.comparing(Apple::getWeight));
+//		inventory.sort(Comparator.comparing(Apple::getWeight).reversed().thenComparing(Apple::getColor));
+//		
+//		for (Apple apple : inventory) {
+//			System.out.println("Apple sorted by weight: "+ apple.getWeight() + " " + apple.getColor());
+//		}
 		
-		for (Apple apple : inventory) {
-			System.out.println("Apple sorted by weight: "+ apple.getWeight() + " " + apple.getColor());
-		}
+//		Predicate<Apple> notRed = (Apple aa) -> ColorEnum.BLUE.equals(aa.getColor());
+//		System.out.println(notRed.negate().or((Apple ax) -> ax.getWeight()>80).test(a1));
+		
+//		Function<Integer, Integer> f = x -> x + 1;
+//		Function<Integer, Integer> g = x -> x * 2;
+//		Function<Integer, Integer> h = f.andThen(g);
+//		
+//		System.out.println(h.apply(10));
 		
 //		List<Apple> inventory = Arrays.asList(a1,a2,a3);
 //		List<Integer> numbers = List.of(1,2,3,4,5,6,7,8,9,10);
@@ -94,7 +129,7 @@ public class Main {
 		
 	}
 	
-	private static List<Apple> map(List<Integer> weights, Function<Integer, Apple> f) {
+	private static List<Apple> map(List<Integer> weights, FunctionInterface<Integer, Apple> f) {
 		List<Apple> results = new ArrayList<>();
 		for (Integer i: weights) {
 			results.add(f.apply(i));
