@@ -18,36 +18,86 @@ public class Main {
 
 
 	public static void main(String[] args) {
-		Apple a1 = new Apple();
-		Apple a2 = new Apple();
-		Apple a3 = new Apple();
-		
-		a1.setColor(ColorEnum.BLUE);
-		a2.setColor(ColorEnum.RED);
-		a3.setColor(ColorEnum.GREEN);
-		
-		a1.setWeight(40);
-		a2.setWeight(40);
-		a3.setWeight(80);
-		
-		List<Apple> inventory = Arrays.asList(a2,a3,a1);
-		
-		String text = Letter.addHeader("Olá, seja bem vindo ao ladba");		
-		text = Letter.addFooter(text);
-		text = Letter.checkSpelling(text);
-		System.out.println(text);
 		
 		
-		Function<String,String> addHeader = Letter::addHeader;
-		Function<String,String> transformationPipeline = addHeader.andThen(Letter::checkSpelling).andThen(Letter::addFooter);
-		Function<String,String> transformationPipeline2 = addHeader.andThen(Letter::checkSpelling);
+		
+		List<Dish> menu = Arrays.asList(
+			    new Dish("pork", false, 800, Dish.Type.MEAT),
+			    new Dish("beef", false, 700, Dish.Type.MEAT),
+			    new Dish("chicken", false, 400, Dish.Type.MEAT),
+			    new Dish("french fries", true, 530, Dish.Type.OTHER),
+			    new Dish("rice", true, 350, Dish.Type.OTHER),
+			    new Dish("season fruit", true, 120, Dish.Type.OTHER),
+			    new Dish("pizza", true, 550, Dish.Type.OTHER),
+			    new Dish("prawns", false, 300, Dish.Type.FISH),
+			    new Dish("salmon", false, 450, Dish.Type.FISH) );
 		
 		
-		String a = transformationPipeline.apply("Olá, seja bem vindo ao ladba");
-		System.out.println(a);
 		
-		String aa1 = transformationPipeline2.apply("Olá, seja bem vindo ao ladba");
-		System.out.println(aa1);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		Apple a1 = new Apple();
+//		Apple a2 = new Apple();
+//		Apple a3 = new Apple();
+//		
+//		a1.setColor(ColorEnum.BLUE);
+//		a2.setColor(ColorEnum.RED);
+//		a3.setColor(ColorEnum.GREEN);
+//		
+//		a1.setWeight(40);
+//		a2.setWeight(40);
+//		a3.setWeight(80);
+//		
+//		List<Apple> inventory = Arrays.asList(a2,a3,a1);
+//		
+//		String text = Letter.addHeader("Olá, seja bem vindo ao ladba");		
+//		text = Letter.addFooter(text);
+//		text = Letter.checkSpelling(text);
+//		System.out.println(text);
+//		
+//		
+//		Function<String,String> addHeader = Letter::addHeader;
+//		Function<String,String> transformationPipeline = addHeader.andThen(Letter::checkSpelling).andThen(Letter::addFooter);
+//		Function<String,String> transformationPipeline2 = addHeader.andThen(Letter::checkSpelling);
+//		
+//		
+//		String a = transformationPipeline.apply("Olá, seja bem vindo ao ladba");
+//		System.out.println(a);
+//		
+//		String aa1 = transformationPipeline2.apply("Olá, seja bem vindo ao ladba");
+//		System.out.println(aa1);
 		
 		
 		
